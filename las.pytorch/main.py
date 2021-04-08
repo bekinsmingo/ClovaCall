@@ -317,7 +317,7 @@ def main():
     if optim_state is not None:
             optimizer.load_state_dict(optim_state)
 
-    criterion = nn.CrossEntropyLoss(reduction='mean').to(device)
+    criterion = nn.CrossEntropyLoss(reduction='mean', ignore_index=PAD_token).to(device)
 
     print(model)
     print("Number of parameters: %d" % Seq2Seq.get_param_size(model))
